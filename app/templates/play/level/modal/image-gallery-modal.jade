@@ -31,14 +31,25 @@ block modal-body-content
         ='2. '
         span(data-i18n="web_dev.copy_the_url")
       .text-h3.subtitle(data-i18n="web_dev.copy_the_url_description")
-      textarea
-        if view.state.get('selectedUrl')
-          = view.state.get('selectedUrl')
+      .row
+        .col-xs-7
+          textarea.image-url
+            if view.state.get('selectedUrl')
+              = utils.pathToUrl(view.state.get('selectedUrl'))
+        .col-xs-5
+          button.btn.btn-forest.copy-url-button
+            span(data-i18n="web_dev.copy_url")
       h3(data-i18n="web_dev.copy_the_img_tag")
       .text-h3.subtitle(data-i18n="web_dev.copy_the_img_tag_description")
-      textarea
-        if view.state.get('selectedUrl')
-          = '<img src="' + view.state.get('selectedUrl') + '"/>'
+      .row
+        .col-xs-7
+          textarea.image-tag
+            if view.state.get('selectedUrl')
+              = '<img src="' + utils.pathToUrl(view.state.get('selectedUrl')) + '"/>'
+        .col-xs-5
+          button.btn.btn-forest.copy-tag-button
+            span(data-i18n="web_dev.copy_img")
+  
 
 block modal-footer-content
   a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="modal.close").btn.btn-primary Close

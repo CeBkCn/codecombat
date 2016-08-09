@@ -1525,6 +1525,8 @@
     copy_the_img_tag: "Copy the <img> tag"
     copy_the_img_tag_description: "Useful if you want to insert a new image."
     how_to_copy_paste: "How to Copy/Paste"
+    copy_url: "Copy URL"
+    copy_img: "Copy <img>"
 
   classes:
     archmage_title: "Archmage"

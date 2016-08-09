@@ -1,5 +1,6 @@
 ModalView = require 'views/core/ModalView'
 State = require 'models/State'
+utils = require 'core/utils'
 
 module.exports = class ImageGalleryModal extends ModalView
   id: 'image-gallery-modal'
@@ -7,7 +8,11 @@ module.exports = class ImageGalleryModal extends ModalView
   
   events:
     'click .image-list-item': 'onClickImageListItem'
+    'click .copy-url-button': 'onClickCopyUrlButton'
+    'click .copy-tag-button': 'onClickCopyTagButton'
   
+  getRenderData: ->
+    _.merge super(arguments...), { utils }
   initialize: ->
     @state = new State()
     @listenTo @state, 'all', @render
@@ -15,6 +20,20 @@ module.exports = class ImageGalleryModal extends ModalView
   onClickImageListItem: (e) ->
     selectedUrl = $(e.currentTarget).data('portrait-url')
     @state.set { selectedUrl }
+    
+  onClickCopyUrlButton: (e) ->
+    console.log "image URL"
+    $('.image-url').select()
+    try
+      document.execCommand('copy')
+      # TODO: display errors or something
+    
+  onClickCopyTagButton: (e) ->
+    console.log "<img> tag"
+    $('.image-tag').select()
+    try
+      document.execCommand('copy')
+      # TODO: display errors or something
   
   # Top most useful Thang portraits
   images: [

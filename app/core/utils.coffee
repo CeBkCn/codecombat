@@ -49,6 +49,10 @@ toHex = (n) ->
   h = '0'+h if h.length is 1
   h
 
+module.exports.pathToUrl = (path) ->
+  base = location.protocol + '//' + location.hostname + (location.port && ":" + location.port)
+  base + path
+
 module.exports.i18n = (say, target, language=me.get('preferredLanguage', true), fallback='en') ->
   generalResult = null
   fallBackResult = null
