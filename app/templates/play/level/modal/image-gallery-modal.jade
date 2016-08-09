@@ -1,23 +1,44 @@
 extends /templates/core/modal-base-flat
 
 block modal-header-content
-  h3(data-i18n="web_dev.image_gallery_title")
-  span(data-i18n="web_dev.image_gallery_description")
 
 block modal-body-content
-  dl.dl-horizontal
-    for image in view.images
-      dt
-        img(src=image.portraitURL)
-      dd
-        ul.list-unstyled
-          li
-            span.no-select= 'URL: '
-            kbd= image.portraitURL
-          br
-          li
-            span.no-select= '<img>: '
-            kbd= '<img src="' + image.portraitURL + '">'
+  .row
+    div.image-list-container.col-sm-7
+      h3
+        ='1. '
+        span(data-i18n="web_dev.select_an_image")
+      .text-h3.subtitle(data-i18n="web_dev.image_gallery_description")
+      ul.image-list
+        for image in view.images
+          - var selectedState = state.get('selectedUrl') === image.portraitURL ? 'selected' : ''
+          li.image-list-item(data-portrait-url=image.portraitURL, class=selectedState, selected=selectedState)
+            img(src=image.portraitURL)
+          //- dd
+          //-   ul.list-unstyled
+          //-     li
+          //-       span.no-select= 'URL: '
+          //-       kbd= image.portraitURL
+          //-     br
+          //-     li
+          //-       span.no-select= '<img>: '
+          //-       kbd= '<img src="' + image.portraitURL + '">'
+      .small.text-center
+        span(data-i18n="TODO")
+          | (Scroll down for more images)
+    div.col-sm-5
+      h3
+        ='2. '
+        span(data-i18n="web_dev.copy_the_url")
+      .text-h3.subtitle(data-i18n="web_dev.copy_the_url_description")
+      textarea
+        if view.state.get('selectedUrl')
+          = view.state.get('selectedUrl')
+      h3(data-i18n="web_dev.copy_the_img_tag")
+      .text-h3.subtitle(data-i18n="web_dev.copy_the_img_tag_description")
+      textarea
+        if view.state.get('selectedUrl')
+          = '<img src="' + view.state.get('selectedUrl') + '"/>'
 
 block modal-footer-content
   a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="modal.close").btn.btn-primary Close

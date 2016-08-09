@@ -1,8 +1,21 @@
 ModalView = require 'views/core/ModalView'
+State = require 'models/State'
 
 module.exports = class ImageGalleryModal extends ModalView
   id: 'image-gallery-modal'
   template: require 'templates/play/level/modal/image-gallery-modal'
+  
+  events:
+    'click .image-list-item': 'onClickImageListItem'
+  
+  initialize: ->
+    @state = new State()
+    @listenTo @state, 'all', @render
+    
+  onClickImageListItem: (e) ->
+    selectedUrl = $(e.currentTarget).data('portrait-url')
+    @state.set { selectedUrl }
+  
   # Top most useful Thang portraits
   images: [
      {slug: 'archer-f', name: 'Archer F', original: '529ab1a24b67a988ad000002', portraitURL: '/file/db/thang.type/529ab1a24b67a988ad000002/portrait.png', kind: 'Unit'}

@@ -1519,8 +1519,12 @@
     creator: "Creator"
 
   web_dev:
-    image_gallery_title: "Image Gallery"
-    image_gallery_description: "Copy these images into your webpage, or find your own image URLs online."
+    select_an_image: "Select an image you want to use"
+    copy_the_url: "Copy the URL below"
+    copy_the_url_description: "Useful if you want to replace an existing image."
+    copy_the_img_tag: "Copy the <img> tag"
+    copy_the_img_tag_description: "Useful if you want to insert a new image."
+    how_to_copy_paste: "How to Copy/Paste"
 
   classes:
     archmage_title: "Archmage"

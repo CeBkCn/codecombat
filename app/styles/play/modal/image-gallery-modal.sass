@@ -1,11 +1,58 @@
 @import "app/styles/mixins"
+@import "app/styles/style-flat-variables"
 
 #image-gallery-modal
+  h3
+    font-size: 20pt
+    
+  .subtitle
+    font-size: 14pt
+    line-height: 14pt
+  
   .modal-dialog
-    width: 800px
-
-  li
-    font-size: 12px
+    width: 850px
+    height: 550px
+    max-height: 100vh
+    
+  .modal-body
+    height: 440px
 
   .no-select
     @include user-select(none)
+
+  .image-list
+    overflow: -moz-scrollbars-vertical
+    overflow-y: scroll
+    margin: 0
+    
+    // Force scrollbar visible
+    &::-webkit-scrollbar
+        // -webkit-appearance: none
+        border: thin solid gray
+        width: 14px
+    &::-webkit-scrollbar-thumb
+        border-radius: 4px
+        background-color: rgba(0,0,0,.5)
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5)
+
+  .image-list
+    height: 440px
+    max-height: 100vh
+    padding: 0
+    display: flex
+    flex-wrap: wrap
+
+  .image-list-item
+    img
+      width: 72px
+      height: 72px
+    margin: 16px
+    list-style-type: none
+    background-color: #f8f8f8
+    box-shadow: 0 0 0 1px gray
+  
+    &.selected
+      box-shadow: 0 0 0 6px $gold
+
+  .copyable
+    font-size: 10pt
