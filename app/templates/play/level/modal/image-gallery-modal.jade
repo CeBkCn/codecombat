@@ -3,7 +3,7 @@ extends /templates/core/modal-base-flat
 block modal-header-content
 
 block modal-body-content
-  .row
+  .row.modal-body-content
     div.image-list-container.col-sm-7
       h3
         ='1. '
@@ -76,5 +76,7 @@ block modal-body-content
             | Paste
           | : Command ⌘–V
 
+      .close-button
+        a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="web_dev.back_to_editing").btn.btn-lg.btn-primary
+
 block modal-footer-content
-  a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="web_dev.back_to_editing").btn.btn-lg.btn-primary

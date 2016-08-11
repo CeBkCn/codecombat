@@ -13,9 +13,16 @@
     width: 850px
     height: 550px
     max-height: 100vh
-    
-  .modal-body
-    height: 440px
+  
+  .modal-footer
+    display: none
+  
+  .modal-header
+    padding: 0
+    min-height: 0
+  
+  .modal-body-content
+    height: 485px
 
   .no-select
     @include user-select(none)
@@ -36,6 +43,7 @@
   .flex-col
     display: flex
     flex-direction: column
+    height: 100%
 
   .image-list
     height: 440px
@@ -81,6 +89,12 @@
     line-height: 16px
     font-style: italic
     color: gray
+  
+  .close-button
+    flex-grow: 1
+    align-self: flex-end
+    display: flex
+    align-items: flex-end
 
   // Fancy text inside horizontal rules
   
