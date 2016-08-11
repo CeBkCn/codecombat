@@ -3,11 +3,11 @@
 
 #image-gallery-modal
   h3
-    font-size: 20pt
+    font-size: 20px
     
   .subtitle
-    font-size: 14pt
-    line-height: 14pt
+    font-size: 14px
+    line-height: 14px
   
   .modal-dialog
     width: 850px
@@ -31,8 +31,11 @@
       border: thin solid gray
       width: 14px
     &::-webkit-scrollbar-thumb
-      border-radius: 4px
       background-color: rgba(0,0,0,.5)
+
+  .flex-col
+    display: flex
+    flex-direction: column
 
   .image-list
     height: 440px
@@ -53,5 +56,48 @@
     &.selected
       box-shadow: 0 0 0 6px $gold
 
+  //
+
+  .copy-row
+    display: flex
+    align-items: center
+    
+    .copy-textarea-col
+      flex-grow: 1
+      
+      textarea
+        width: 100%
+        height: 55px
+    
+    .copy-button-col
+      padding-left: 10px
+
   .copyable
-    font-size: 10pt
+    font-size: 10px
+    line-height: 12px
+    
+  .how-to-copy-paste
+    font-size: 13px
+    line-height: 16px
+    font-style: italic
+    color: gray
+
+  // Fancy text inside horizontal rules
+  
+  .hr-text
+    position: relative
+    hr
+      width: 50%
+      padding: 0
+      border: none
+      border-top: thin solid #444
+      color: #444
+    span
+      position: absolute
+      left: 50%
+      top: 0.45em
+      transform: translateX(-50%)
+      padding: 0 0.75em
+      font-weight: bold
+      font-size: 10pt
+      background: white

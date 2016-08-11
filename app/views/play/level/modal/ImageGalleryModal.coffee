@@ -13,10 +13,16 @@ module.exports = class ImageGalleryModal extends ModalView
   
   getRenderData: ->
     _.merge super(arguments...), { utils }
+
   initialize: ->
     @state = new State()
     @listenTo @state, 'all', @render
     
+  afterRender: ->
+    if navigator.userAgent.indexOf("Mac") > -1
+      @$('.windows-only').addClass('hidden')
+      @$('.mac-only').removeClass('hidden')
+
   onClickImageListItem: (e) ->
     selectedUrl = $(e.currentTarget).data('portrait-url')
     @state.set { selectedUrl }

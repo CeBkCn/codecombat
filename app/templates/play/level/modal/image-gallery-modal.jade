@@ -26,30 +26,55 @@ block modal-body-content
       .small.text-center
         span(data-i18n="TODO")
           | (Scroll down for more images)
-    div.col-sm-5
+    div.col-sm-5.flex-col
       h3
         ='2. '
         span(data-i18n="web_dev.copy_the_url")
       .text-h3.subtitle(data-i18n="web_dev.copy_the_url_description")
-      .row
-        .col-xs-7
-          textarea.image-url
+      .copy-row.m-t-1
+        .copy-textarea-col
+          textarea.image-url.copyable
             if view.state.get('selectedUrl')
               = utils.pathToUrl(view.state.get('selectedUrl'))
-        .col-xs-5
+        .copy-button-col
           button.btn.btn-forest.copy-url-button
             span(data-i18n="web_dev.copy_url")
+
+      .hr-text.m-t-1
+        hr
+        span(data-i18n="general.or")
+
       h3(data-i18n="web_dev.copy_the_img_tag")
       .text-h3.subtitle(data-i18n="web_dev.copy_the_img_tag_description")
-      .row
-        .col-xs-7
-          textarea.image-tag
+      .copy-row.m-t-1
+        .copy-textarea-col
+          textarea.image-tag.copyable
             if view.state.get('selectedUrl')
               = '<img src="' + utils.pathToUrl(view.state.get('selectedUrl')) + '"/>'
-        .col-xs-5
+        .copy-button-col
           button.btn.btn-forest.copy-tag-button
             span(data-i18n="web_dev.copy_img")
-  
+
+      .how-to-copy-paste.m-t-3
+        div.m-b-1.text-center
+          span(data-i18n="TODO")
+            | How to Copy/Paste
+        .windows-only
+          span(data-i18n="TODO")
+            | Copy
+          | : Control–C
+          br
+          span(data-i18n="TODO")
+            | Paste
+          | : Control–V
+        .mac-only.hidden
+          span(data-i18n="TODO")
+            | Copy
+          | : Command ⌘–C
+          br
+          span(data-i18n="TODO")
+            | Paste
+          | : Command ⌘–V
 
 block modal-footer-content
-  a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="modal.close").btn.btn-primary Close
+  a(href='#', data-dismiss="modal", aria-hidden="true", data-i18n="web_dev.back_to_editing").btn.btn-lg.btn-primary
