@@ -8,7 +8,6 @@ block modal-body-content
       h3
         ='1. '
         span(data-i18n="web_dev.select_an_image")
-      .text-h3.subtitle(data-i18n="web_dev.image_gallery_description")
       ul.image-list
         for image in view.images
           - var selectedState = state.get('selectedUrl') === image.portraitURL ? 'selected' : ''
