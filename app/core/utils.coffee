@@ -188,6 +188,10 @@ if document?.createElement
       return
   )(document)
 
+# So that we can stub out userAgent in tests
+module.exports.userAgent = ->
+  window.navigator.userAgent
+
 module.exports.getQueryVariable = getQueryVariable = (param, defaultValue) ->
   query = document.location.search.substring 1
   pairs = (pair.split('=') for pair in query.split '&')

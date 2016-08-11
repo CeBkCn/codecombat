@@ -19,7 +19,7 @@ module.exports = class ImageGalleryModal extends ModalView
     @listenTo @state, 'all', @render
     
   afterRender: ->
-    if navigator.userAgent.indexOf("Mac") > -1
+    if utils.userAgent().indexOf("Mac") > -1
       @$('.windows-only').addClass('hidden')
       @$('.mac-only').removeClass('hidden')
 
