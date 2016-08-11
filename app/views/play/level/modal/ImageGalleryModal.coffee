@@ -16,7 +16,7 @@ module.exports = class ImageGalleryModal extends ModalView
 
   initialize: ->
     @state = new State()
-    @listenTo @state, 'all', @render
+    @listenTo @state, 'all', => @renderSelectors('.render')
     
   afterRender: ->
     if utils.userAgent().indexOf("Mac") > -1

@@ -11,7 +11,7 @@ block modal-body-content
       ul.image-list
         for image in view.images
           - var selectedState = state.get('selectedUrl') === image.portraitURL ? 'selected' : ''
-          li.image-list-item(data-portrait-url=image.portraitURL, class=selectedState, selected=selectedState)
+          li.image-list-item.render(data-portrait-url=image.portraitURL, class=selectedState, selected=selectedState)
             img(src=image.portraitURL)
           //- dd
           //-   ul.list-unstyled
@@ -25,7 +25,7 @@ block modal-body-content
       .small.text-center
         span(data-i18n="TODO")
           | (Scroll down for more images)
-    div.col-sm-5.flex-col
+    div.col-sm-5.flex-col.render
       h3
         ='2. '
         span(data-i18n="web_dev.copy_the_url")
